@@ -17,6 +17,8 @@ Two REST APIs are provided
  To upload csv file. The request parameter is file.
 2. foodTrucks/address/{longitude}/{latitude}/{distance}
  To search for locations. The distance is taken in miles.
+3. foodTrucks/all
+To get all locations. May be its not required but for testing purpose it helps
 
 At the start of the application there is code which reads data from the provided csv file which is stored in the resources directory.
 Otherwise the rest api can be used to upload the file you choose.
