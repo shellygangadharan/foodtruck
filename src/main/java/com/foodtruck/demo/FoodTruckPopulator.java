@@ -33,7 +33,8 @@ public class FoodTruckPopulator implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		List<FoodTruckInfo> foodTrucks = new ArrayList<>();
 		this.foodTruckRepository.deleteAll();
-		FileReader fileReader = new FileReader("C:\\Users\\shell\\Documents\\workspace-sts-3.9.1.RELEASE\\demo-1\\src\\main\\resources\\Mobile_Food_Facility_Permit.csv"); 
+		// FileReader fileReader = new FileReader("C:\\Users\\shell\\Documents\\workspace-sts-3.9.1.RELEASE\\demo-1\\src\\main\\resources\\Mobile_Food_Facility_Permit.csv"); 
+		FileReader fileReader = new FileReader("Mobile_Food_Facility_Permit.csv"); 		
 		foodTrucks = readDataLineByLine(fileReader);
 		this.foodTruckRepository.saveAll(foodTrucks) ;
 		System.out.println(" Saved all ");

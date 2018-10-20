@@ -55,6 +55,16 @@ public class FoodTruckController {
     @GetMapping("/address/{longitude}/{latitude}/{distance}")
     public List<FoodTruckInfo> findByDistance(@PathVariable("longitude") float longitude,@PathVariable("latitude") float latitude,@PathVariable("distance") double distance){
     	
+    	if (distance < 0) {
+    		throw new RuntimeException( " Distance has to be greater than zero") ;
+    	}
+    	if ( latitude > 90 || latitude <-90) {
+    		throw new RuntimeException( " Latitude should be between -90 and 90") ;
+    	}
+    	if ( longitude > 180 || longitude <-180) {
+    		throw new RuntimeException( " Longitude should be between -180 and 180") ;
+    	}
+    	
     	Point basePoint = new Point(longitude, latitude);
     	Distance radius = new Distance(distance, Metrics.MILES) ;
     	Circle area = new Circle(basePoint, radius);
